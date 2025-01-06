@@ -1,10 +1,8 @@
-import test from 'ava';
-import imageminSvgo from './index.js';
+const test = require('ava');
+const imageminSvgo = require('.');
 
 test('optimize a SVG', async t => {
-	const buffer = await imageminSvgo()('<svg><script></script></svg>');
-
-	t.is(buffer.toString(), '<svg><script/></svg>');
+	t.is((await imageminSvgo()('<svg><style> #circle { } </style></svg>')).toString(), '<svg/>');
 });
 
 test('support SVGO options', async t => {
