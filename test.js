@@ -12,7 +12,7 @@ test('support SVGO options', async t => {
 		plugins: [{
 			name: 'preset-default',
 		}, {
-			name: 'removeScriptElement',
+			name: 'removeScripts',
 			active: true,
 		}],
 	})('<svg><script></script></svg>');
